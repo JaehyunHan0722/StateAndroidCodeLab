@@ -9,13 +9,23 @@ import androidx.compose.ui.Modifier
 @Composable
 fun WellnessTaskList(
     modifier: Modifier = Modifier,
-    list: List<WellnessTask> = remember { getWellnessTask() }
+//    list: List<WellnessTask> = remember { getWellnessTask() }
+    list: List<WellnessTask>,
+    onCloseTask: (WellnessTask) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier
     ) {
-        items(list) { task ->
-            WellnessTaskItem(taskName = task.label)
+//        items(list) { task ->
+//            WellnessTaskItem(taskName = task.label)
+//        }
+        items(
+            items = list,
+            key = { task -> task.id }
+        ) { task ->
+            WellnessTaskItem(
+                taskName = task.label,
+                onClose = { onCloseTask(task) })
         }
     }
 }
