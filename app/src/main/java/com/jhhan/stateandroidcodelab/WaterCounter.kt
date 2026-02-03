@@ -10,6 +10,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,23 +22,24 @@ fun WaterCounter(modifier: Modifier = Modifier) {
     ) {
 //        var count = 0
 //        var count: MutableState<Int> = remember { mutableStateOf(0) }
-        var count by remember { mutableStateOf(0) }
+//        var count by remember { mutableStateOf(0) }
+        var count by rememberSaveable { mutableStateOf(0) }
 //        Text(text = "You've had ${count.value} glasses.")
 //        Text(text = "You've had $count glasses.")
         if (count > 0) {
-            var showTask by remember { mutableStateOf(true) }
-            if (showTask) {
-                WellnessTaskItem(
-                    onClose = { showTask = false },
-                    taskName = "Have you taken your 15 minute walk today?"
-                )
-            }
+//            var showTask by remember { mutableStateOf(true) }
+//            if (showTask) {
+//                WellnessTaskItem(
+//                    onClose = { showTask = false },
+//                    taskName = "Have you taken your 15 minute walk today?"
+//                )
+//            }
             Text(text = "You've had $count glasses.")
         }
 
-        Row(
-            modifier = Modifier.padding(top = 8.dp)
-        ) {
+//        Row(
+//            modifier = Modifier.padding(top = 8.dp)
+//        ) {
             Button(
 //            onClick = { count++ },
                 onClick = { count++ },
@@ -45,15 +47,15 @@ fun WaterCounter(modifier: Modifier = Modifier) {
             ) {
                 Text(text = "Add one")
             }
-            Button(
-                onClick = { count = 0 },
-                modifier = Modifier.padding(start = 8.dp),
-            ) {
-                Text(
-                    text = "Clear water count"
-                )
-            }
-        }
+//            Button(
+//                onClick = { count = 0 },
+//                modifier = Modifier.padding(start = 8.dp),
+//            ) {
+//                Text(
+//                    text = "Clear water count"
+//                )
+//            }
+//        }
 
     }
 }
