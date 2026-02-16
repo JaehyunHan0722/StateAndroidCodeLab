@@ -12,5 +12,5 @@ class WellnessTask(
     val label: String,
     initialChecked: Boolean = false,
 ){
-    var checked by mutableStateOf(initialChecked)git 
+    var checked by mutableStateOf(initialChecked)
 }
